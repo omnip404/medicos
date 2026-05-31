@@ -12,9 +12,10 @@ WORKDIR /app
 COPY . .
 
 RUN echo "APP_DEBUG=true" > .env && \
+    echo "APP_KEY=" >> .env && \
     composer install --no-dev --optimize-autoloader && \
     php artisan key:generate --force && \
-    chmod -R 777 storage/bootstrap/cache
+    chmod -R 777 storage bootstrap/cache
 
 EXPOSE 8000
 
