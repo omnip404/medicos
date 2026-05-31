@@ -13,7 +13,8 @@ COPY . .
 
 RUN echo "APP_DEBUG=true" > .env && \
     composer install --no-dev --optimize-autoloader && \
-    chmod -R 777 storage bootstrap/cache
+    php artisan key:generate --force && \
+    chmod -R 777 storage/bootstrap/cache
 
 EXPOSE 8000
 
