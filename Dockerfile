@@ -11,7 +11,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /app
 COPY . .
 
-RUN composer install --no-dev --optimize-autoloader
+RUN cp .env.example .env && \
+    composer install --no-dev --optimize-autoloader && \
+    chmod -R 777 storage bootstrap/cache
 
 EXPOSE 8000
 
