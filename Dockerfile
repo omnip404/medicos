@@ -11,7 +11,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /app
 COPY . .
 
-RUN echo "APP_DEBUG=false" > .env && \
+RUN echo "APP_DEBUG=true" > .env && \
     echo "APP_KEY=" >> .env && \
     echo "DB_CONNECTION=pgsql" >> .env && \
     echo "DB_HOST=dpg-d8dt89favr4c73843q00-a" >> .env && \
