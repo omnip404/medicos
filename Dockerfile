@@ -19,9 +19,10 @@ RUN echo "APP_DEBUG=false" > .env && \
     echo "DB_DATABASE=medicos_db_01" >> .env && \
     echo "DB_USERNAME=medicos_db_01_user" >> .env && \
     echo "DB_PASSWORD=8NBIY7yPEkXkb4cyxcntghiwu5bQqWoC" >> .env && \
-    echo "SESSION_DRIVER=cookie" >> .env && \
+    echo "SESSION_DRIVER=file" >> .env && \
     composer install --no-dev --optimize-autoloader && \
     php artisan key:generate --force && \
+    mkdir -p storage/framework/sessions && \
     chmod -R 777 storage bootstrap/cache
 
 EXPOSE 8000
