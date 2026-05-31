@@ -13,6 +13,8 @@ COPY . .
 
 RUN echo "APP_DEBUG=true" > .env && \
     echo "APP_KEY=" >> .env && \
+    echo "DB_CONNECTION=pgsql" >> .env && \
+    echo "SESSION_DRIVER=file" >> .env && \
     composer install --no-dev --optimize-autoloader && \
     php artisan key:generate --force && \
     chmod -R 777 storage bootstrap/cache
