@@ -1,4 +1,4 @@
-﻿FROM php:8.3-cli
+FROM php:8.3-cli
 
 RUN apt-get update && apt-get install -y \
     libpq-dev \
@@ -11,7 +11,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /app
 COPY . .
 
-RUN touch .env && \
+RUN echo "APP_DEBUG=true" > .env && \
     composer install --no-dev --optimize-autoloader && \
     chmod -R 777 storage bootstrap/cache
 
