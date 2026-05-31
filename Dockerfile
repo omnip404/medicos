@@ -21,7 +21,7 @@ RUN echo "APP_DEBUG=false" > .env && \
     echo "DB_PASSWORD=8NBIY7yPEkXkb4cyxcntghiwu5bQqWoC" >> .env && \
     echo "SESSION_DRIVER=cookie" >> .env && \
     composer install --no-dev --optimize-autoloader && \
-    php artisan key:generate --force &&
+    php artisan key:generate --force && \
     chmod -R 777 storage bootstrap/cache
 
 EXPOSE 8000
