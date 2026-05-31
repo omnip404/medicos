@@ -11,10 +11,10 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /app
 COPY . .
 
-RUN cp .env.example .env && \
+RUN touch .env && \
     composer install --no-dev --optimize-autoloader && \
     chmod -R 777 storage bootstrap/cache
 
 EXPOSE 8000
 
-CMD php artisan migrate --force 2>/dev/null; php artisan serve --host=0.0.0.0 --port=$PORT
+CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=$PORT
