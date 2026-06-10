@@ -1,35 +1,59 @@
-﻿<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Medicos</title>
-</head>
-<body>
-    <h1>Nuevo registro</h1>
-    <form action="{{ route('medicos.store') }}" method="POST">
-        @csrf
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required><br><br>
+﻿@extends('layouts.master')
+@section('title', 'Nuevo Medico')
 
-        <label for="especialidad">Especialidad:</label>
-        <input type="text" id="especialidad" name="especialidad" required><br><br>
+@section('content')
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h3 mb-0">
+            <i class="fas fa-user-plus me-2 text-success"></i>Nuevo Medico
+        </h1>
+        <a href="{{ route('medicos.index') }}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left me-1"></i>Volver
+        </a>
+    </div>
 
-        <label for="fnac">Fecha de nacimiento:</label>
-        <input type="date" id="fnac" name="fnac" required><br><br>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <form action="{{ route('medicos.store') }}" method="POST">
+                @csrf
 
-        <label for="aniotituto">A&ntilde;o de titulacion:</label>
-        <input type="number" id="aniotituto" name="aniotituto" required><br><br>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control" required>
+                    </div>
 
-        <label for="celular">Celular:</label>
-        <input type="text" id="celular" name="celular" required><br><br>
+                    <div class="col-md-6">
+                        <label for="especialidad" class="form-label">Especialidad</label>
+                        <input type="text" id="especialidad" name="especialidad" class="form-control" required>
+                    </div>
 
-        <label for="foto">Foto (URL):</label>
-        <input type="url" id="foto" name="foto" placeholder="https://ejemplo.com/foto.jpg"><br><br>
+                    <div class="col-md-4">
+                        <label for="fnac" class="form-label">Fecha de Nacimiento</label>
+                        <input type="date" id="fnac" name="fnac" class="form-control" required>
+                    </div>
 
-        <button type="submit">Guardar</button>
-    </form>
-    <br>
-    <a href="{{ route('medicos.index') }}">Volver a la lista</a>
-</body>
-</html>
+                    <div class="col-md-4">
+                        <label for="aniotituto" class="form-label">Año de Titulacion</label>
+                        <input type="number" id="aniotituto" name="aniotituto" class="form-control" required>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="celular" class="form-label">Celular</label>
+                        <input type="text" id="celular" name="celular" class="form-control" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="foto" class="form-label">Foto (URL)</label>
+                        <input type="url" id="foto" name="foto" class="form-control" placeholder="https://ejemplo.com/foto.jpg">
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save me-1"></i>Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+@endsection
