@@ -2,11 +2,11 @@
 @section('title', 'Detalles de Medico')
 
 @section('content')
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4">
         <h1 class="h3 mb-0">
             <i class="fas fa-user-md me-2 text-info"></i>Detalles de Medico
         </h1>
-        <div>
+        <div class="d-flex flex-wrap gap-2">
             <a href="{{ route('medicos.index') }}" class="btn btn-secondary">
                 <i class="fas fa-arrow-left me-1"></i>Volver
             </a>

@@ -2,7 +2,7 @@
 @section('title', 'Lista de Medicos')
 
 @section('content')
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4">
         <h1 class="h3 mb-0">
             <i class="fas fa-user-md me-2 text-primary"></i>Lista de Medicos
         </h1>
